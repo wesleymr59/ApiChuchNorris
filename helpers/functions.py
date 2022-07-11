@@ -23,3 +23,9 @@ def validaBody(convertBodyRequest)-> dict:
                 raise HTTPException(status_code=404, detail=convertBodyRequest['message'])
         else:
                 raise HTTPException(status_code=400, detail="bad request")
+
+def buscaPorParametros(catgoria):
+        bodyRequest = getCategoria(catgoria)
+        convertBodyRequest = convertTojson(bodyRequest) 
+    
+        return validaBody(convertBodyRequest)
